@@ -21,70 +21,37 @@ fun main() {
     // You can write some code here to test if below functions work
 }
 
-fun allDogs() {
-    TODO("implement")
-}
+fun allDogs(): List<Dog> = animalsInShelter.filterIsInstance<Dog>()
 
-fun allCats() {
-    TODO("implement")
-}
+fun allCats(): List<Cat> = animalsInShelter.filterIsInstance<Cat>()
 
-fun allDogsInSortedInAlphabeticalOrder(): List<Dog> {
-    TODO("implement")
-}
+fun allDogsInSortedInAlphabeticalOrder(): List<Dog> = allDogs().sortedBy { it.name }
 
-fun allCatsInSortedInReverseAlphabeticalOrder(): List<Cat> {
-    TODO("implement")
-}
+fun allCatsInSortedInReverseAlphabeticalOrder(): List<Cat> =allCats().sortedBy { it.name }
 
-fun animalsWhoWeighsLessThanFour(): List<Animal> {
-    TODO("implement")
-}
+fun animalsWhoWeighsLessThanFour(): List<Animal> = animalsInShelter.sortedBy { it.weight<4 }
 
-fun catsSortedByTheirAgesInAscendingOrder(): List<Cat> {
-    TODO("implement")
-}
+fun catsSortedByTheirAgesInAscendingOrder(): List<Cat> =allCats().sortedBy { it.age }
 
-fun dogSortedByTheirAgesInDescendingOrder(): List<Dog> {
-    TODO("implement")
-}
+fun dogSortedByTheirAgesInDescendingOrder(): List<Dog> = allDogs().sortedBy { it.age }
 
-fun animalsWhoHasSpaceCharacterInTheirName(): List<Animal> {
-    TODO("implement")
-}
+fun animalsWhoHasSpaceCharacterInTheirName(): List<Animal> = animalsInShelter.filter { it.name.contains(" ") }
 
-fun numberOfAnimalsWhichAreOlderThanThree(): Int {
-    TODO("implement")
-}
+fun numberOfAnimalsWhichAreOlderThanThree(): Int = animalsInShelter.filter { it.age>3 }.count()
 
-fun sumOfWeightsOfAllCats(): Double {
-    TODO("implement")
-}
+fun sumOfWeightsOfAllCats(): Double =allCats().sumOf { it.weight }
 
-fun catWithMaximumAge(): Cat {
-    TODO("implement")
-}
+fun catWithMaximumAge(): Cat = allCats().maxByOrNull { it.age }!!
 
-fun dogWithLongestName(): Dog {
-    TODO("implement")
-}
+fun dogWithLongestName(): Dog =allDogs().maxByOrNull { it.name.length }!!
 
-fun animalsWhoAreYoungerThanFourAndHeavierThanTwo(): List<Animal> {
-    TODO("implement")
-}
+fun animalsWhoAreYoungerThanFourAndHeavierThanTwo(): List<Animal> = animalsInShelter.filter {it.weight>2&&it.weight<4}
 
-fun areAllCatsHeavierThanAllDogs(): Boolean {
-    TODO("implement")
-}
+fun areAllCatsHeavierThanAllDogs(): Boolean =allCats().sumByDouble { it.weight }>allDogs().sumByDouble { it.weight }
 
-fun areThereMoreCatsThanTheDogs(): Boolean {
-    TODO("implement")
-}
+fun areThereMoreCatsThanTheDogs(): Boolean =  allCats().size>allDogs().size
 
-fun isThereAnyAnimalWhichHasLetterCInTheirName(): Boolean {
-    TODO("implement")
-}
+fun isThereAnyAnimalWhichHasLetterCInTheirName(): Boolean = animalsInShelter.filter{it.name.contains("C")}.isNotEmpty()
 
-fun findTheAnimalWithNameHugo(): Animal {
-    TODO("implement")
-}
+fun findTheAnimalWithNameHugo(): Animal =animalsInShelter.find { it.name == "Hugo" }!!
+

@@ -27,31 +27,31 @@ fun allCats(): List<Cat> = animalsInShelter.filterIsInstance<Cat>()
 
 fun allDogsInSortedInAlphabeticalOrder(): List<Dog> = allDogs().sortedBy { it.name }
 
-fun allCatsInSortedInReverseAlphabeticalOrder(): List<Cat> =allCats().sortedBy { it.name }
+fun allCatsInSortedInReverseAlphabeticalOrder(): List<Cat> = allCats().sortedBy { it.name }.reversed()
 
-fun animalsWhoWeighsLessThanFour(): List<Animal> = animalsInShelter.sortedBy { it.weight<4 }
+fun animalsWhoWeighsLessThanFour(): List<Animal> = animalsInShelter.filter { it.weight < 4 }
 
-fun catsSortedByTheirAgesInAscendingOrder(): List<Cat> =allCats().sortedBy { it.age }
+fun catsSortedByTheirAgesInAscendingOrder(): List<Cat> = allCats().sortedBy { it.age }
 
-fun dogSortedByTheirAgesInDescendingOrder(): List<Dog> = allDogs().sortedBy { it.age }
+fun dogSortedByTheirAgesInDescendingOrder(): List<Dog> = allDogs().sortedByDescending { it.age }
 
 fun animalsWhoHasSpaceCharacterInTheirName(): List<Animal> = animalsInShelter.filter { it.name.contains(" ") }
 
-fun numberOfAnimalsWhichAreOlderThanThree(): Int = animalsInShelter.filter { it.age>3 }.count()
+fun numberOfAnimalsWhichAreOlderThanThree(): Int = animalsInShelter.count { it.age > 3 }
 
-fun sumOfWeightsOfAllCats(): Double =allCats().sumOf { it.weight }
+fun sumOfWeightsOfAllCats(): Double = allCats().sumOf { it.weight }
 
 fun catWithMaximumAge(): Cat = allCats().maxByOrNull { it.age }!!
 
-fun dogWithLongestName(): Dog =allDogs().maxByOrNull { it.name.length }!!
+fun dogWithLongestName(): Dog = allDogs().maxByOrNull { it.name.length }!!
 
-fun animalsWhoAreYoungerThanFourAndHeavierThanTwo(): List<Animal> = animalsInShelter.filter {it.weight>2&&it.weight<4}
+fun animalsWhoAreYoungerThanFourAndHeavierThanTwo(): List<Animal> = animalsInShelter.filter { it.age < 4 && it.age > 2 }
 
-fun areAllCatsHeavierThanAllDogs(): Boolean =allCats().sumByDouble { it.weight }>allDogs().sumByDouble { it.weight }
+fun areAllCatsHeavierThanAllDogs(): Boolean = allCats().sumByDouble { it.weight } > allDogs().sumByDouble { it.weight }
 
-fun areThereMoreCatsThanTheDogs(): Boolean =  allCats().size>allDogs().size
+fun areThereMoreCatsThanTheDogs(): Boolean = allCats().size > allDogs().size
 
-fun isThereAnyAnimalWhichHasLetterCInTheirName(): Boolean = animalsInShelter.filter{it.name.contains("C")}.isNotEmpty()
+fun isThereAnyAnimalWhichHasLetterCInTheirName(): Boolean = animalsInShelter.filter { it.name.contains("C") }.any()
 
-fun findTheAnimalWithNameHugo(): Animal =animalsInShelter.find { it.name == "Hugo" }!!
+fun findTheAnimalWithNameHugo(): Animal = animalsInShelter.find { it.name == "Hugo" }!!
 

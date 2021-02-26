@@ -45,7 +45,7 @@ fun catWithMaximumAge(): Cat = allCats().maxByOrNull { it.age }!!
 
 fun dogWithLongestName(): Dog = allDogs().maxByOrNull { it.name.length }!!
 
-fun animalsWhoAreYoungerThanFourAndHeavierThanTwo(): List<Animal> = animalsInShelter.filter { it.age < 4 && it.age > 2 }
+fun animalsWhoAreYoungerThanFourAndHeavierThanTwo(): List<Animal> = animalsInShelter.filter { it.age < 4 && it.weight> 2 }
 
 fun areAllCatsHeavierThanAllDogs(): Boolean = allCats().sumByDouble { it.weight } > allDogs().sumByDouble { it.weight }
 
@@ -54,4 +54,3 @@ fun areThereMoreCatsThanTheDogs(): Boolean = allCats().size > allDogs().size
 fun isThereAnyAnimalWhichHasLetterCInTheirName(): Boolean = animalsInShelter.filter { it.name.contains("C") }.any()
 
 fun findTheAnimalWithNameHugo(): Animal = animalsInShelter.find { it.name == "Hugo" }!!
-
